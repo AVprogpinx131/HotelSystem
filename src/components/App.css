@@ -620,10 +620,6 @@ header .nav_btn {
 }
 
 @media (max-width: 410px) {
-  p {
-    display: none;
-  }
-
   .navbar {
     padding: 1.5em;
   }
@@ -640,5 +636,8 @@ header .nav_btn {
   .calendar_info {
     margin-right: 1em;
   }
-}
 
+  .room_link {
+    font-size: 35px;
+  }
+}

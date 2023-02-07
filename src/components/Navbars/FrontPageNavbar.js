@@ -11,7 +11,7 @@ function FrontPageNavbar() {
 
   return (
     <header className="navbar home_page_navbar">
-      <Link to="/HotelSystem" className="logo_text home_page_logo_text">
+      <Link to="/" className="logo_text home_page_logo_text">
         Hotell "Omega"
       </Link>
       <nav className="links_container" ref={navRef}>

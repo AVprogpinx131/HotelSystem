@@ -5,7 +5,7 @@ function LogInNavbar() {
   return (
     <header className="navbar">
       <div className="logo">
-        <Link to="/HotelSystem" className="logo_text">
+        <Link to="/" className="logo_text">
           Hotell "Omega"
         </Link>
       </div>
