@@ -137,7 +137,7 @@ h1 {
   gap: 50px;
 }
 
-input {
+.auth_input {
   outline: none;
   height: 45px;
   width: 100%;
@@ -205,6 +205,11 @@ input {
   margin-top: 5em;
 }
 
+.btn_3 {
+  padding: 1.1em;
+  margin-left: 3em;
+}
+
 .contact_bg {
   display: flex;
   justify-content: center;
@@ -250,6 +255,7 @@ form {
 
 .btn_1,
 .btn_2,
+.btn_3,
 .account_info {
   font-size: 17px;
 }
@@ -302,6 +308,42 @@ form {
 
 .price {
   margin-top: 6em;
+}
+
+.price_link_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.change_btn {
+  margin: 6em 0 0 0;
+  padding: 1em 1.5em;
+  width: auto;
+}
+
+.box {
+  margin-bottom: 3em;
+}
+
+.input {
+  margin-top: 1em;
+  outline: none;
+  padding: 0.5em;
+  font-size: 15px;
+}
+
+textarea {
+  width: 250px;
+  height: 100px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+label {
+  font-size: 18px;
 }
 
 select,

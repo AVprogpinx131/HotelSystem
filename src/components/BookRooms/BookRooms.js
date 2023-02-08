@@ -46,6 +46,9 @@ function BookRooms() {
           >
             Edasi
           </Link>
+          <Link to={"/change-rooms"} className="btn btn_3">
+            Lisa uus ruum
+          </Link>
         </div>
       </div>
     </div>

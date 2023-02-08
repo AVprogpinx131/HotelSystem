@@ -13,11 +13,21 @@ function LogIn() {
               Kinnita konto andmed
             </h2>
             <div>
-              <input type="text" placeholder="Kasutajatunnus" required />
+              <input
+                type="text"
+                placeholder="Kasutajatunnus"
+                required
+                className="auth_input"
+              />
             </div>
             <div className="password">
               <div>
-                <input type="password" placeholder="Parool" required />
+                <input
+                  type="password"
+                  placeholder="Parool"
+                  required
+                  className="auth_input"
+                />
               </div>
               <button className="btn" type="submit">
                 Sisene

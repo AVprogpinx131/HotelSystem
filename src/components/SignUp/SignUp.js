@@ -13,11 +13,19 @@ function SignUp() {
               Loo endale sobiv konto
             </h2>
             <div>
-              <input type="text" placeholder="Kasutajatunnus" />
+              <input
+                type="text"
+                placeholder="Kasutajatunnus"
+                className="auth_input"
+              />
             </div>
             <div className="password">
               <div>
-                <input type="password" placeholder="Parool" />
+                <input
+                  type="password"
+                  placeholder="Parool"
+                  className="auth_input"
+                />
               </div>
               <button className="btn" type="submit">
                 Registreeru

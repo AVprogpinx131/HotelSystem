@@ -21,7 +21,12 @@ function RoomCard({ room }) {
           </div>
         </div>
         <p style={{ marginTop: "1em" }}>{room.available} saadaval</p>
-        <h3 className="price">{room.price} € / öö</h3>
+        <div className="price_link_container">
+          <h3 className="price">{room.price} € / öö</h3>
+          <Link to={"/change-rooms"} className="btn change_btn">
+            Muuda
+          </Link>
+        </div>
       </div>
     </div>
   );
