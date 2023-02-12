@@ -60,6 +60,11 @@
   font-weight: bold;
 }
 
+.room.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .navbar_link:hover,
 .logo_text:hover,
 .sign_in_link:hover {

@@ -32,7 +32,7 @@ function BookRooms() {
                 id={room.id}
                 value={room.name}
                 onClick={handleClick}
-                className="room"
+                className={"room " + ((roomValue == room.name) ? 'selected' : '')}
               >
                 {room.name}
               </button>
