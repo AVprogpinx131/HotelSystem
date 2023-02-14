@@ -27,15 +27,6 @@ function RoomOverview() {
     fetchRoom();
   }, []);
 
-  const firstImage =
-    rooms.pictures && rooms.pictures.length > 0 ? rooms.pictures[0] : "";
-
-  const secondImage =
-    rooms.pictures && rooms.pictures.length > 0 ? rooms.pictures[1] : "";
-
-  const thirdImage =
-    rooms.pictures && rooms.pictures.length > 0 ? rooms.pictures[2] : "";
-
   return (
     <div>
       <OtherPagesNavbar />
@@ -54,9 +45,14 @@ function RoomOverview() {
             Broneeri
           </Link>
           <div className="room_type_images">
-            <img src={firstImage} alt="" className="img_2" />
-            <img src={secondImage} alt="" className="img_2" />
-            <img src={thirdImage} alt="" className="img_2" />
+            {rooms.pictures &&
+              rooms.pictures.map((image) => {
+                return (
+                  <div key={image}>
+                    <img src={image} alt="" className="img_2" />
+                  </div>
+                );
+              })}
           </div>
         </div>
         <div className="calendar_container">

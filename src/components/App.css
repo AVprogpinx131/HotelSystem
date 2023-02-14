@@ -202,12 +202,13 @@ h1 {
 }
 
 .btn_container {
-  margin-top: 5em;
+  display: flex;
+  gap: 50px;
 }
 
 .btn_3 {
-  padding: 1.1em;
-  margin-left: 3em;
+  width: 170px;
+  text-align: center;
 }
 
 .contact_bg {
@@ -253,6 +254,16 @@ form {
   cursor: pointer;
 }
 
+.delete-btn {
+  color: white;
+}
+
+.delete-btn:hover {
+  color: rgb(211, 36, 36);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
 .btn_1,
 .btn_2,
 .btn_3,
@@ -261,7 +272,8 @@ form {
 }
 
 .btn_1 {
-  padding: 1.1em 2.2em;
+  width: 120px;
+  text-align: center;
 }
 
 .btn_2 {
@@ -285,6 +297,31 @@ form {
   width: 245px;
   margin-top: 5em;
 }
+
+.image {
+  width: 300px;
+  margin-top: 0.5em;
+  border-radius: 10px;
+}
+
+.outer_images {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 5em;
+}
+
+.inner_images {
+  background-color: rgb(117, 64, 14);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+}
+
+/* .images {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 2em;
+} */
 
 .room_type_images {
   display: flex;
@@ -322,28 +359,35 @@ form {
 }
 
 .box {
-  margin-bottom: 3em;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
-.input {
-  margin-top: 1em;
+.box_1 {
+  margin-top: 3em;
+  margin-left: -1em;
+}
+
+label {
+  font-size: 18px;
+  margin-right: 1em;
+}
+
+.input,
+textarea {
   outline: none;
   padding: 0.5em;
   font-size: 15px;
 }
 
 textarea {
-  width: 250px;
-  height: 100px;
+  margin-top: 1em;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   display: none;
-}
-
-label {
-  font-size: 18px;
 }
 
 select,
@@ -503,6 +547,11 @@ header .nav_btn {
 
   .price {
     margin-top: 1.5em;
+    margin-bottom: 2.5em;
+  }
+
+  .price_link_container {
+    display: block;
   }
 }
 
@@ -681,5 +730,9 @@ header .nav_btn {
 
   .room_link {
     font-size: 35px;
+  }
+
+  .btn_container {
+    display: block;
   }
 }

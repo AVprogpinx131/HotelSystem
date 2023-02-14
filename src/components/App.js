@@ -28,7 +28,7 @@ function App() {
         element={<BookRoomsSchedule />}
       ></Route>
       <Route path="/details" element={<Details />}></Route>
-      <Route path="/change-rooms" element={<ChangeRooms />}></Route>
+      <Route path="/change-rooms/:roomId" element={<ChangeRooms />}></Route>
       <Route path="*" element={<NoMatch />}></Route>
     </Routes>
   );
