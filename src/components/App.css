@@ -264,6 +264,22 @@ form {
   transition: 0.3s ease-in-out;
 }
 
+.add-btn {
+  display: none;
+}
+
+.label {
+}
+
+@keyframes animation {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-15%);
+  }
+}
+
 .btn_1,
 .btn_2,
 .btn_3,
@@ -299,8 +315,8 @@ form {
 }
 
 .image {
-  width: 300px;
-  margin-top: 0.5em;
+  width: 250px;
+  margin-top: 1em;
   border-radius: 10px;
 }
 
@@ -316,12 +332,6 @@ form {
   padding: 1em 1.5em;
   border-radius: 10px;
 }
-
-/* .images {
-  display: flex;
-  gap: 50px;
-  margin-bottom: 2em;
-} */
 
 .room_type_images {
   display: flex;
@@ -369,9 +379,29 @@ form {
   margin-left: -1em;
 }
 
-label {
+.label {
   font-size: 18px;
   margin-right: 1em;
+}
+
+.label_1 {
+  background-color: rgb(1, 158, 1);
+  padding: 0.5em 0.7em;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.label_1:hover {
+  background-color: rgb(0, 131, 0);
+  transition: 0.5s ease;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5em;
 }
 
 .input,
