@@ -6,15 +6,17 @@ import RoomCard from "../SearchRooms/RoomCard";
 function SearchRooms() {
   const [rooms, setRooms] = useState([]);
   const [sortDirection, setSortDirection] = useState(true);
-  const [sortType, setSortType] = useState("name");
+  const [sortType, setSortType] = useState("price");
 
   useEffect(() => {
-    getRoomsSortedBy(sortType, sortDirection).then((data) => setRooms(data));
+    getRoomsSortedBy(sortType, sortDirection).then(data => setRooms(data));
   }, [sortType, sortDirection]);
 
   const handleDirection = () => {
     setSortDirection(!sortDirection);
   };
+
+  console.log("rendering rooms:", rooms);
 
   return (
     <div>
@@ -33,7 +35,7 @@ function SearchRooms() {
           </select>
         </div>
       </div>
-      {rooms.map((room) => {
+      {rooms && rooms.map((room) => {
         return (
           <div key={room.id}>
             <RoomCard room={room} />

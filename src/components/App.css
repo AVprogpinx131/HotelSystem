@@ -60,6 +60,11 @@
   font-weight: bold;
 }
 
+.room.selected {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .navbar_link:hover,
 .logo_text:hover,
 .sign_in_link:hover {
@@ -202,13 +207,12 @@ h1 {
 }
 
 .btn_container {
-  display: flex;
-  gap: 50px;
+  margin-top: 5em;
 }
 
 .btn_3 {
-  width: 170px;
-  text-align: center;
+  padding: 1.1em;
+  margin-left: 3em;
 }
 
 .contact_bg {
@@ -254,32 +258,6 @@ form {
   cursor: pointer;
 }
 
-.delete-btn {
-  color: white;
-}
-
-.delete-btn:hover {
-  color: rgb(211, 36, 36);
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-}
-
-.add-btn {
-  display: none;
-}
-
-.label {
-}
-
-@keyframes animation {
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(-15%);
-  }
-}
-
 .btn_1,
 .btn_2,
 .btn_3,
@@ -288,8 +266,7 @@ form {
 }
 
 .btn_1 {
-  width: 120px;
-  text-align: center;
+  padding: 1.1em 2.2em;
 }
 
 .btn_2 {
@@ -312,25 +289,6 @@ form {
 .img_2 {
   width: 245px;
   margin-top: 5em;
-}
-
-.image {
-  width: 250px;
-  margin-top: 1em;
-  border-radius: 10px;
-}
-
-.outer_images {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin: 5em;
-}
-
-.inner_images {
-  background-color: rgb(117, 64, 14);
-  padding: 1em 1.5em;
-  border-radius: 10px;
 }
 
 .room_type_images {
@@ -369,55 +327,28 @@ form {
 }
 
 .box {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
+  margin-bottom: 3em;
 }
 
-.box_1 {
-  margin-top: 3em;
-  margin-left: -1em;
-}
-
-.label {
-  font-size: 18px;
-  margin-right: 1em;
-}
-
-.label_1 {
-  background-color: rgb(1, 158, 1);
-  padding: 0.5em 0.7em;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-}
-
-.label_1:hover {
-  background-color: rgb(0, 131, 0);
-  transition: 0.5s ease;
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 0.5em;
-}
-
-.input,
-textarea {
+.input {
+  margin-top: 1em;
   outline: none;
   padding: 0.5em;
   font-size: 15px;
 }
 
 textarea {
-  margin-top: 1em;
+  width: 250px;
+  height: 100px;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   display: none;
+}
+
+label {
+  font-size: 18px;
 }
 
 select,
@@ -577,11 +508,6 @@ header .nav_btn {
 
   .price {
     margin-top: 1.5em;
-    margin-bottom: 2.5em;
-  }
-
-  .price_link_container {
-    display: block;
   }
 }
 
@@ -760,9 +686,5 @@ header .nav_btn {
 
   .room_link {
     font-size: 35px;
-  }
-
-  .btn_container {
-    display: block;
   }
 }

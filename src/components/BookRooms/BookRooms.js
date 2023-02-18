@@ -32,7 +32,7 @@ function BookRooms() {
                 id={room.id}
                 value={room.name}
                 onClick={handleClick}
-                className={"room " + (roomValue == room.name ? "selected" : "")}
+                className={"room " + ((roomValue == room.name) ? 'selected' : '')}
               >
                 {room.name}
               </button>
@@ -46,7 +46,7 @@ function BookRooms() {
           >
             Edasi
           </Link>
-          <Link to={`/change-rooms/${roomId}`} className="btn btn_3">
+          <Link to={"/change-rooms"} className="btn btn_3">
             Lisa uus ruum
           </Link>
         </div>
