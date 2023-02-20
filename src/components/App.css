@@ -258,6 +258,29 @@ form {
   cursor: pointer;
 }
 
+.delete-btn {
+  color: white;
+}
+
+.delete-btn:hover {
+  color: rgb(211, 36, 36);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
+.add-btn {
+  display: none;
+}
+
+@keyframes animation {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-15%);
+  }
+}
+
 .btn_1,
 .btn_2,
 .btn_3,
@@ -687,4 +710,23 @@ header .nav_btn {
   .room_link {
     font-size: 35px;
   }
+}
+
+.image {
+  width: 250px;
+  margin-top: 1em;
+  border-radius: 10px;
+}
+
+.outer_images {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 5em;
+}
+
+.inner_images {
+  background-color: rgb(117, 64, 14);
+  padding: 1em 1.5em;
+  border-radius: 10px;
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import OtherPagesNavbar from "../Navbars/OtherPagesNavbar";
 import styled from "styled-components";
-import { getRoomsSortedBy } from "../HotelApi";
+import { getRoom, getRoomsSortedBy } from "../HotelApi";
 import CalendarLogic from "../CalendarLogic";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -24,31 +24,15 @@ function BookRoomsSchedule() {
 
   const handleClick = () => {
     history(
-      `/details?firstDate=${Math.floor(
-        date[0].getTime() / 1000
-      )}&secondDate=${Math.floor(
-        date[1].getTime() / 1000
-      )}&roomProperty=${roomValue}`
+      `/details?firstDate=${date[0].toISOString().split('T')[0]}&secondDate=${date[1].toISOString().split('T')[0]}&room=${roomId}`
     );
   };
 
-  const fetchRoom = async () => {
-    const res = (await getRoomsSortedBy()).find(
-      (element) => element.id === roomId
-    );
-    const { name, price, pictures, available, bookedDates } = res;
-    setRooms({
-      name,
-      price,
-      pictures,
-      available,
-      bookedDates,
-    });
-  };
+  const [ room, setRoom ] = useState(null);
 
   useEffect(() => {
-    fetchRoom();
-  }, []);
+    getRoom(roomId).then(room => setRoom(room));
+  }, [ roomId ]);
 
   return (
     <div>
@@ -64,24 +48,28 @@ function BookRoomsSchedule() {
         ) : (
           ""
         )}
-        <CalendarContainer className="calendar_data">
-          <div>
-            <h3 style={{ marginBottom: "0.5em" }}>Saadavus</h3>
-            <CalendarLogic rooms={rooms} />
-          </div>
-          <div>
-            <h3 style={{ marginBottom: "0.5em" }}>Vali sobiv vahemik</h3>
-            <Calendar
-              value={date}
-              onChange={setDate}
-              selectRange={true}
-              locale="et-EE"
-            />
-          </div>
-        </CalendarContainer>
-        <button className="btn btn_2" onClick={handleClick}>
-          Edasi
-        </button>
+        { room && (
+          <>
+            <CalendarContainer className="calendar_data">
+              <div>
+                <h3 style={{ marginBottom: "0.5em" }}>Saadavus</h3>
+                <CalendarLogic room={room} />
+              </div>
+              <div>
+                <h3 style={{ marginBottom: "0.5em" }}>Vali sobiv vahemik</h3>
+                <Calendar
+                  value={date}
+                  onChange={setDate}
+                  selectRange={true}
+                  locale="et-EE"
+                />
+              </div>
+            </CalendarContainer>
+            <button className="btn btn_2" onClick={handleClick}>
+              Edasi
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

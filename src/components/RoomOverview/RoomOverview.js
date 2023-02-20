@@ -28,6 +28,7 @@ function RoomOverview() {
               }
               <div className="room_desc">
                 <h3>{room.name}</h3>
+                <p style={{ marginTop: "1em" }}>{room.description}</p>
                 <p style={{ marginTop: "1em" }}>{room.available} saadaval</p>
                 <h3 className="room_price">{room.price} € / öö</h3>
                 <Link

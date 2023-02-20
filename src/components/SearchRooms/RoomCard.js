@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { UserAuth } from "../UserContext";
 
 function RoomCard({ room }) {
+  const { user, logOut } = UserAuth();
+
   return (
     <div className="room_card">
       <img src={room.pictures} alt="" className="img" />
@@ -23,9 +26,13 @@ function RoomCard({ room }) {
         <p style={{ marginTop: "1em" }}>{room.available} saadaval</p>
         <div className="price_link_container">
           <h3 className="price">{room.price} € / öö</h3>
-          <Link to={"/change-rooms"} className="btn change_btn">
-            Muuda
-          </Link>
+          {
+            user && user.type == "admin" ? (
+              <Link to={"/change-rooms/"+room.id} className="btn change_btn">
+                Muuda
+              </Link>
+            ) : null
+          }
         </div>
       </div>
     </div>

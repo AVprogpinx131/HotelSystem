@@ -3,17 +3,19 @@ import moment from "moment";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
-function CalendarLogic({ rooms }) {
-  const bookedDatesArray =
-    rooms && rooms.bookedDates ? Object.values(rooms.bookedDates) : undefined;
+function CalendarLogic({ room }) {
+  console.log("in CalendarLogic:", room);
+  const bookedDatesArray = room ? (room.appointments || []) : [];
 
   function tilesClassName({ date, view }) {
-    if (
-      bookedDatesArray &&
-      bookedDatesArray.find((x) => x === moment(date).format("M/D/YYYY"))
-    ) {
-      return "highlighted";
-    }
+    let found = bookedDatesArray.find(appointment => {
+      console.log("comparing:", date, "to", appointment);
+      if(date.valueOf() >= appointment.start && date.valueOf() <= appointment.end) {
+        return true;
+      }
+    });
+
+    return found ? "highlighted" : "";
   }
 
   return (

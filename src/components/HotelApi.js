@@ -14,6 +14,7 @@ const prefix = 'http://127.0.0.1:4000';
  * @property {number} available Available room count
  * @property {Appointment[] | null} appointments Appointments
  * @property {String[]} pictures Array of URL-s of pictures. First one is the thumbnail.
+ * @property {number} count Count of this room in the hotel
  */
 
 /**
@@ -138,6 +139,49 @@ async function getRoomsByAvailability(startDate, endDate) {
   }
 }
 
+async function makeAppointment(room, startDate, endDate) {
+  try {
+    const response = await fetch(prefix+'/api/make-appointment?' + new URLSearchParams({
+      room,
+      startDate: startDate.toISOString().split('T')[0],
+      endDate: endDate.toISOString().split('T')[0]
+    }), { method: 'POST', credentials: 'include' });
+    return response.status;
+  } catch(error) {
+    console.error(error);
+  }
+}
+
+async function updateRoom(room, name, price, count, description, pictures) {
+  console.log("updateRoom:", name, price, count, description, pictures);
+  try {
+    const response = await fetch(prefix+'/api/update?' + new URLSearchParams({
+      room
+    }), { body: JSON.stringify({
+      name,
+      price,
+      count,
+      description,
+      pictures
+    }),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }, method: 'POST', credentials: 'include' });
+    if(response.status == 200) fetchedRooms[""+room] = {
+      ...fetchedRooms[""+room],
+      name,
+      price,
+      count,
+      description,
+      pictures
+    };
+    return response.status;
+  } catch(error) {
+    console.error(error);
+  }
+}
+
 async function logIn(username, password) {
   const response = await fetch(prefix+'/api/login', {
     method: 'POST',
@@ -180,4 +224,7 @@ async function getUser() {
   return user;
 }
 
-export { getRooms, getRoomsSortedBy, getRoomsByAvailability, logIn, register, getUser, getRoom };
+export { getRooms, getRoomsSortedBy, getRoomsByAvailability, logIn, register, getUser, getRoom, makeAppointment, updateRoom };
+
+
+
