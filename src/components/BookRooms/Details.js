@@ -18,8 +18,8 @@ function Details() {
     getRoom(roomId).then(room => setRoom(room));
   }, [ roomId ]);
 
-  const milliseconds1 = startDate * 1000;
-  const milliseconds2 = endDate * 1000;
+  const milliseconds1 = startDate;
+  const milliseconds2 = endDate;
   const dateObject1 = new Date(milliseconds1);
   const dateObject2 = new Date(milliseconds2);
 
@@ -35,6 +35,7 @@ function Details() {
 
   const handleClick = () => {
     setError("");
+    console.log("date objects:", dateObject1, dateObject2);
     makeAppointment(roomId, dateObject1, dateObject2).then(status => {
       if(status == 200) history('/');
       else if(status == 400) setError("Kuupäevad on juba kinni");

@@ -24,7 +24,7 @@ function BookRoomsSchedule() {
 
   const handleClick = () => {
     history(
-      `/details?firstDate=${date[0].toISOString().split('T')[0]}&secondDate=${date[1].toISOString().split('T')[0]}&room=${roomId}`
+      `/details?firstDate=${date[0].getFullYear()+"-"+(date[0].getMonth())+"-"+date[0].getDate()}&secondDate=${date[1].getFullYear()+"-"+(date[1].getMonth())+"-"+date[1].getDate()}&room=${roomId}`
     );
   };
 

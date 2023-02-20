@@ -64,10 +64,17 @@ async function getRooms() {
     data.forEach(obj => {
       if(obj["appointments"] != null) {
         obj["appointments"] = JSON.parse(obj["appointments"]);
-        obj["appointments"] = obj["appointments"].map(appointment => [
-          new Date(...appointment[0].split("-")),
-          new Date(...appointment[1].split("-"))
-        ]);
+        obj["appointments"] = obj["appointments"].map(appointment => {
+          let date1 = appointment[0].split("-");
+          date1[1] = parseInt(date1[1]) - 0;
+          let date2 = appointment[1].split("-");
+          date2[1] = parseInt(date2[1]) - 0;
+          
+          return [
+            new Date(date1),
+            new Date(date2)
+          ];
+        });
       }
       if(obj["pictures"] != null) obj["pictures"] = JSON.parse(obj["pictures"])
     })
@@ -94,10 +101,17 @@ async function getRoomsSortedBy(column, isAscending) {
     data.forEach(obj => {
       if(obj["appointments"] != null) {
         obj["appointments"] = JSON.parse(obj["appointments"]);
-        obj["appointments"] = obj["appointments"].map(appointment => [
-          new Date(...appointment[0].split("-")),
-          new Date(...appointment[1].split("-"))
-        ]);
+        obj["appointments"] = obj["appointments"].map(appointment => {
+          let date1 = appointment[0].split("-");
+          date1[1] = parseInt(date1[1]) - 0;
+          let date2 = appointment[1].split("-");
+          date2[1] = parseInt(date2[1]) - 0;
+          
+          return [
+            new Date(date1),
+            new Date(date2)
+          ];
+        });
       }
       if(obj["pictures"] != null) obj["pictures"] = JSON.parse(obj["pictures"])
     })
@@ -124,10 +138,17 @@ async function getRoomsByAvailability(startDate, endDate) {
     data.forEach(obj => {
       if(obj["appointments"] != null) {
         obj["appointments"] = JSON.parse(obj["appointments"]);
-        obj["appointments"] = obj["appointments"].map(appointment => [
-          new Date(...appointment[0].split("-")),
-          new Date(...appointment[1].split("-"))
-        ]);
+        obj["appointments"] = obj["appointments"].map(appointment => {
+          let date1 = appointment[0].split("-");
+          date1[1] = parseInt(date1[1]) - 0;
+          let date2 = appointment[1].split("-");
+          date2[1] = parseInt(date2[1]) - 0;
+          
+          return [
+            new Date(date1),
+            new Date(date2)
+          ];
+        });
       }
       if(obj["pictures"] != null) obj["pictures"] = JSON.parse(obj["pictures"])
     })
@@ -140,11 +161,13 @@ async function getRoomsByAvailability(startDate, endDate) {
 }
 
 async function makeAppointment(room, startDate, endDate) {
+  console.log("startDate:", startDate.toISOString());
+  console.log("endDate:", endDate.toISOString());
   try {
     const response = await fetch(prefix+'/api/make-appointment?' + new URLSearchParams({
       room,
-      startDate: startDate.toISOString().split('T')[0],
-      endDate: endDate.toISOString().split('T')[0]
+      startDate: startDate.getFullYear()+"-"+(startDate.getMonth() + 1)+"-"+startDate.getDate(),
+      endDate: endDate.getFullYear()+"-"+(endDate.getMonth() + 1)+"-"+endDate.getDate()
     }), { method: 'POST', credentials: 'include' });
     return response.status;
   } catch(error) {
